@@ -1,0 +1,31 @@
+====================
+Basic Structure Abstract Definition :
+
+Parse(
+    [List of Methods] methods,
+    [argv span] argv
+) {
+    # For each Methods as x in methods,
+    # x must have a contract of Return(x) = bool, Accept(x) = [&it, argv.end()]
+    # With Return(x) = true ==> accepted to process argument from current position
+    # With Return(x) = false ==> denied to process argument from current position (iterator remains unchanged)
+    # With HaltReason(x) = Partial Match ==> Raise Error
+
+    auto it = argv.begin()
+    while it < argv.end() {
+        for each method in methods :
+            if UseWith(method, [&it, argv.end()]) = true
+                ->  break
+            else -> continue
+
+        if NotAdvanced(it) -> Panic()
+    }
+}
+
+
+
+
+
+
+
+
