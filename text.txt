@@ -1,8 +1,0 @@
-constexpr auto b = make_sctx(
-    set_sname("std",
-        set_lname("stda",
-        set_flag(UPR | LOR | IMM, // UPR = No more than NArgs, LOR = No less than NArgs, IMM = Immediate method invocation after option/posarg parsing
-        Option<did>::make()))),
-    set_nargs(1,
-        set_lname("files", Posarg::make()))
-);
